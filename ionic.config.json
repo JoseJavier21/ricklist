@@ -1,0 +1,8 @@
+{
+  "name": "ricklist",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "928a4d63"
+}
