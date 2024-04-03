@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';3
+import { Injectable } from '@angular/core'; 3
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Personaje } from '../model/personaje';
@@ -15,5 +15,5 @@ export class ListService {
   getDatos(): Observable<Personaje[]> {
     return this.http.get<Personaje[]>(this.url)
   }
-  
+
 }

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Personaje } from '../model/personaje';
+import { Info } from '../model/info';
+import { Result } from '../model/result';
+import { Location } from '../model/location';
+
 import { ListService } from '../service/list.service'; 
 
 @Component({
@@ -9,44 +13,17 @@ import { ListService } from '../service/list.service';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private apiservice: ListService) {}
 
-  datos: Personaje[] = [
-    {
-      id: 1,
-      name: "Rick",
-      status: "Alive",
-      species: "Human",
-      type: "Main",
-      gender: "Male",
-      origin: {
-        name: "Earth",
-        url: "https://rickandmortyapi.com/api/location/1"
-      },
-      location: {
-        name: "Earth",
-        url: "https://rickandmortyapi.com/api/location/20"
-      },
-      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-      episode: [
-        "https://rickandmortyapi.com/api/episode/1",
-        "https://rickandmortyapi.com/api/episode/2",
-        "https://rickandmortyapi.com/api/episode/3",
-        "https://rickandmortyapi.com/api/episode/4",
-        "https://rickandmortyapi.com/api/episode/5",
-      ],
-      url: ""
-    }
-  ];
+  datos: Personaje[] = [];
 
   ionViewWillEnter() {
     console.log('tab 1');
-  this.obtenerDatos();
+    this.obtenerDatos();
   }
 
-  obtenerDatos() {
-    console.log('obtenerDatos');
-/*       this.apiservice.getDatos().subscribe({
+  obtenerDatos(){
+       this.apiservice.getDatos().subscribe({
       next: res => {
         this.datos = res;
         console.log(res);
@@ -54,7 +31,7 @@ export class Tab1Page {
       error: error => {
         console.error('Ha ocurrido un error', error);
       }
-    }); */
+    });
   }
  
 
