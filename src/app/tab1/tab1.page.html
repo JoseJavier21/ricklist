@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+<ion-content>
+  <ion-list [inset]="true">
+    <ion-card *ngFor="let info of datos">
+      <img [src]="info.image" alt="Imagen del personaje" />
+      <ion-card-header>
+        <ion-card-title>{{ info.name }}</ion-card-title>
+        <ion-card-subtitle>{{ info.gender }}</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <p>Especie: {{ info.species }}</p>
+        <p>Estado: {{ info.status }}</p>
+        <p>Tipo: {{ info.type }}</p>
+        <p>Origen: {{ info.origin.name }}</p>
+        <p>Ubicación: {{ info.location.name }}</p>
+        <div *ngFor="let epi of info.episode">
+          <p>{{epi}}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
