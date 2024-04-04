@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Personaje } from '../model/personaje';
-import { Info } from '../model/info';
-import { Result } from '../model/result';
-import { Location } from '../model/location';
-
 import { ListService } from '../service/list.service'; 
 
 @Component({
@@ -11,26 +7,16 @@ import { ListService } from '../service/list.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
 
   constructor(private apiservice: ListService) {}
 
-  datos: Personaje[] = [];
+  datos: Personaje | undefined;
 
-  ionViewWillEnter() {
-    console.log('tab 1');
-    this.obtenerDatos();
-  }
-
-  obtenerDatos(){
-       this.apiservice.getDatos().subscribe({
-      next: res => {
-        this.datos = res;
-        console.log(res);
-      },
-      error: error => {
-        console.error('Ha ocurrido un error', error);
-      }
+  ngOnInit(){
+       this.apiservice.getDatos().subscribe((data: Personaje) => {
+          this.datos = data;
+          console.log(this.datos);
     });
   }
  

@@ -1,29 +1,19 @@
 <ion-content>
-  <ion-list [inset]="true">
-    <ion-card *ngFor="let info of datos">
 
-      <div *ngFor="let dato of info.results">
+  <h1>Listado de Personajes</h1>
 
-        <img [src]="info.results" alt="Imagen del personaje"/>
+  <ion-list>
+
+    <ion-card *ngFor="let info of datos?.results">
+
+      <img [src]="info.image" alt="Imagen del personaje"/>
         <ion-card-header>
-          <ion-card-title>{{dato.name}}</ion-card-title>
-          <ion-card-subtitle>{{dato.gender}}</ion-card-subtitle>
-
+          <ion-card-title>{{info.name}}</ion-card-title>
+        <ion-card-subtitle>{{info.species}}</ion-card-subtitle>
         </ion-card-header>
-        
-        <ion-card-content>
-          <p>Especie:{{dato.species}}</p>
-          <p>Estado:{{dato.status}}</p>
-          <p>Tipo:{{dato.type}}</p>
-          <p>Origen:{{dato.origin}}</p>
-          <p>Ubicación:{{dato.location}}</p>
-          <div *ngFor="let epi of dato.episode">
-            <p>{{epi}}</p>
-          </div>
-        </ion-card-content>
-
-      </div>
 
     </ion-card>
-
+  
   </ion-list>
+
+</ion-content>

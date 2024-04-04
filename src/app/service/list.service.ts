@@ -8,12 +8,12 @@ import { Personaje } from '../model/personaje';
 })
 export class ListService {
 
-  url = "https://rickandmortyapi.com/api/character"
+  private url = "https://rickandmortyapi.com/api/character"
 
   constructor(private http: HttpClient) { }
 
-  getDatos(): Observable<Personaje[]> {
-    return this.http.get<Personaje[]>(this.url)
+  getDatos(): Observable<Personaje> {
+    return this.http.get<Personaje>(this.url);
   }
 
 }
