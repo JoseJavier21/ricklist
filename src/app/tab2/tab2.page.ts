@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Personaje } from '../model/personaje';
+import { Personaje, Result } from '../model/personaje';
 import { ListService } from '../service/list.service';
+import { Helper } from '../service/helper';
+
 
 @Component({
   selector: 'app-tab2',
@@ -13,11 +15,35 @@ export class Tab2Page {
 
   datos: Personaje | undefined;
 
+  busqueda: string = "";
+
   ngOnInit(){
        this.apiservice.getDatos().subscribe((data: Personaje) => {
           this.datos = data;
-          console.log(this.datos);
     });
   }
+
+  nextPage() {
+    if (this.datos?.info.next) {    
+      this.apiservice.nextPage(this.datos.info.next).subscribe((data: Personaje) => {
+        this.datos = data;
+        console.log(this.datos);
+      });
+    } else {
+      console.log("No hay más páginas");
+    }
+  }
+  
+  prevPage(){
+
+    if (this.datos?.info.prev) {    
+      this.apiservice.nextPage(this.datos.info.prev).subscribe((data: Personaje) => {
+        this.datos = data;
+      });
+    } else {
+      console.log("No hay más páginas");
+    }
+  }
+
 
 }

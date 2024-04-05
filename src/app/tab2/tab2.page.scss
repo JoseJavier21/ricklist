@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+    background-color: rgb(250, 195, 94);
+    padding: 15px;
+}
+
+ion-card > img{
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+ion-card:hover{
+    box-shadow: inset 0 0 5px 2px #dc1f1f;
+}
+
+ion-list{
+    background-color: rgb(146, 146, 146);
+}
+
+ion-content{
+    margin: 0;
+    padding: 0%;
+}
+
+
+.menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+

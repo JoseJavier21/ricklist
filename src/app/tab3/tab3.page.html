@@ -1,7 +1,9 @@
 <ion-content>
-  <ion-list>
 
-    <ion-card *ngFor="let info of datos?.results">
+  <h1>Personajes Favoritos</h1>
+  <ion-list>
+    
+    <ion-card *ngFor="let info of favs">
 
       <img [src]="info.image" alt="Imagen del personaje"/>
         <ion-card-header>
@@ -9,8 +11,10 @@
         <ion-card-subtitle>{{info.species}}</ion-card-subtitle>
         </ion-card-header>
 
-    </ion-card>
-  
+        <ion-button color="danger" (click)="btnfav(info.id)">
+          <p>Eliminar</p>
+          <ion-icon slot="end" name="heart"></ion-icon>
+        </ion-button>
+    </ion-card>    
   </ion-list>
-
 </ion-content>
