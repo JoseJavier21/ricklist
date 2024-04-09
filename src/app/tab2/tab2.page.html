@@ -5,6 +5,8 @@
     <ion-button (click)="nextPage()">Next Page</ion-button>
 </ion-header>
 
+<ion-searchbar animated="true" placeholder="Buscar a un personaje" [(ngModel)]="busqueda" (ionChange)="search()"></ion-searchbar>
+
 <ion-content>
 
   <ion-list>

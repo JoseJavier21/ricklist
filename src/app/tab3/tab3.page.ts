@@ -19,7 +19,6 @@ export class Tab3Page {
   ngOnInit(){
     this.helper.customMessage.subscribe((data: Result[]) => {
       this.favs = data;
-      console.log(this.favs);
     });
   }
  
@@ -27,6 +26,6 @@ export class Tab3Page {
   btnfav(id:number){
     var perId = this.favs.findIndex(item => item.id == id)
     this.favs.splice(perId, 1);
-    console.log(this.favs);
+    
   }
 }

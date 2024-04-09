@@ -18,8 +18,12 @@ export class Tab2Page {
   busqueda: string = "";
 
   ngOnInit(){
-       this.apiservice.getDatos().subscribe((data: Personaje) => {
-          this.datos = data;
+    this.loadDatos();
+  }
+
+  loadDatos(){
+    this.apiservice.getDatos().subscribe((data: Personaje) => {
+      this.datos = data;
     });
   }
 
@@ -27,7 +31,6 @@ export class Tab2Page {
     if (this.datos?.info.next) {    
       this.apiservice.nextPage(this.datos.info.next).subscribe((data: Personaje) => {
         this.datos = data;
-        console.log(this.datos);
       });
     } else {
       console.log("No hay más páginas");
@@ -45,5 +48,14 @@ export class Tab2Page {
     }
   }
 
+  search(){
+    if(this.busqueda != ""){
+      this.apiservice.getBusqueda(this.busqueda).subscribe((data: Personaje) => {
+        this.datos = data;
+      });
+    } else {
+      this.loadDatos();
+    }
+  }
 
 }
