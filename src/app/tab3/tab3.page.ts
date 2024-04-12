@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Personaje, Result } from '../model/personaje';
-import { ListService } from '../service/list.service';
-import { Router } from '@angular/router';
 import { Helper } from '../service/helper';
 
 @Component({
@@ -21,11 +19,11 @@ export class Tab3Page {
       this.favs = data;
     });
   }
- 
+  
   
   btnfav(id:number){
     var perId = this.favs.findIndex(item => item.id == id)
-    this.favs.splice(perId, 1);
-    
+    this.favs.splice(perId, 1); 
   }
+
 }
